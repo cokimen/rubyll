@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         resources :books
         resources :subjects
       end
+      resources :wallet
     end
   end
 end

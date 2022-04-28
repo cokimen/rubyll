@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_28_043536) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_28_050340) do
   create_table "books", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "book"
@@ -36,6 +36,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_043536) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "wallets", force: :cascade do |t|
+    t.integer "User_id", null: false
+    t.string "netwallet"
+    t.integer "saldo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["User_id"], name: "index_wallets_on_User_id"
+  end
+
   add_foreign_key "books", "users"
   add_foreign_key "subjects", "books"
+  add_foreign_key "wallets", "Users"
 end
